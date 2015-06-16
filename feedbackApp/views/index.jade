@@ -1,23 +1,6 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
-  body
-    .row
-      .col-md-4
-      .col-md-4
-        h1 #{title}
-        p Welcome to #{title}
-        form(method='POST')
-          .formfield
-            .formprompt
-            input#username(type='text', name='username')
-          .formfield
-            .formprompt
-            input#password(type='password', name='password')
-            br
-            input.submitButton(type='submit')
-        img.img-responsive(src='/images/homeimg.jpg', id='homeimg')
-      .col-md-4
+extends layout
+
+block content
+  div(ng-view)
+    h1.
+      Hello there

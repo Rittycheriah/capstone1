@@ -2,25 +2,25 @@
 
 // Declare app level module which depends on filters, and services
 
-angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
-]).
-config(function ($routeProvider, $locationProvider) {
+var capMod = angular.module('myApp', [
+              'ngRoute',
+              'myApp.loginController',
+              'myApp.registerController'
+            ])
+
+capMod.config(function ($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $routeProvider.
-    when('/', {
-      templateUrl: 'index.jade',
-      controller: 'loginCtrl'
-    }).
     when('/register', {
       templateUrl: 'partials/register.jade',
       controller: 'registerCtrl'
-    }) 
+    }).
+    when('/login', {
+      templateUrl: 'partials/login.jade',
+      controller: 'loginCtrl'
+    }).
     otherwise({
-      redirectTo: '/'
+    	redirectTo: '/'
     });
 
-  $locationProvider.html5Mode(true);
 });
