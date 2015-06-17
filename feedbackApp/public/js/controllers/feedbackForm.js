@@ -15,3 +15,22 @@ angular.module('myApp.feedbackController', [])
 	  	})
 	  }
  })
+ .controller('allFeedback', function ($scope, $http, $location, $rootScope) {
+   $scope.title = 'All TR@CKeR'
+
+   var getFeedback = function () {
+   	$http({
+   		method: 'GET',
+   		url: '/feedback/all'
+   	}).
+   	success(function(data, status, headers, config) {
+   		console.log('got it!');
+   		$scope.comments = data;
+   	}).
+   	error(function(data, status, headers, config) {
+   		console.log('cannot get list');
+   	});
+   };
+
+   getFeedback();
+ })

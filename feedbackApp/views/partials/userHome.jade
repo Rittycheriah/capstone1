@@ -22,17 +22,17 @@
       .formfield
         .formprompt
         br
-        input#status(type='radio', name='string', ng-model='feedback.status', value='call')
+        input#status(type='radio', name='string', ng-model='feedback.status', value='Call Only')
         label Call Only
       .formfield
         .formprompt
         br
-        input#status(type='radio', name='string', ng-model='feedback.status', value='gaveCode')
+        input#status(type='radio', name='string', ng-model='feedback.status', value='Gave Code')
         label Gave Code
       .formfield
         .formprompt
         br
-        input#status(type='radio', name='string', ng-model='feedback.status', value='scheduledShowing')
+        input#status(type='radio', name='string', ng-model='feedback.status', value='Scheduled Showing')
         label Scheduled Showing
         br
         input.submitButton(type='submit', ng-click='addFeedback()')

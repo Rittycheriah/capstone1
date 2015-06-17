@@ -24,6 +24,10 @@ capMod.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/userHome.jade',
       controller: 'mainCtrl'
     }).
+    when('/allFeedback', {
+      templateUrl: 'partials/allFeedback.jade',
+      controller: 'allFeedback'
+    }).
     otherwise({
     	redirectTo: '/'
     });

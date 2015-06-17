@@ -18,18 +18,16 @@ app.post("/add", function (req, res) {
 	});
 });
 
-// app.get("/allFeedback", function (req, res) {
+app.get("/all", function (req, res) {
 
-// 	var allData = 
+  feedbackModel.find({}, function(err, feedBack) {
+  	if (err) {
+  		res.send('** did not make it');
+  	} else {
+  		res.json(feedBack);
+  	}
+  });
 
-//   if (user === null) {
-//     res.status(403).send('Not authenticated');
-//   } else {
-//     res.status(200).json(user);
-
-//   }
-
-
-// });
+});
 
 module.exports = app;

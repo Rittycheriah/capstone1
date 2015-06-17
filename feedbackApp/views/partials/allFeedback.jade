@@ -1,0 +1,13 @@
+.row(ng-controller='allFeedback')
+    .col-md-4
+    .col-md-4
+      h1 {{title}}
+      p Welcome to {{title}}
+
+      .list(ng-repeat= 'comment in comments')
+        .info.prospectName Name: {{comment.name}}
+        .info.property Property: {{comment.property}}
+        .info.phone Phone: {{comment.phone}}
+        .info.status Status: {{comment.status}}
+        br
+    .col-md-4
