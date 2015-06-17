@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
 var feedbackSchema = mongoose.Schema({
-	// will match all field names in the form
+	name: {type: String, required: true, default: ''},
+  property: {type: String, required: true, default: ''},
+  phone: {type: String, required: true, default: ''},
+  status: {type: String, required: true, default: ''}
 });
 
 var feedback = mongoose.model('Feedback', feedbackSchema);

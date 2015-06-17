@@ -5,7 +5,8 @@
 var capMod = angular.module('myApp', [
               'ngRoute',
               'myApp.loginController',
-              'myApp.registerController'
+              'myApp.registerController',
+              'myApp.feedbackController'
             ])
 
 capMod.config(function ($routeProvider, $locationProvider) {
@@ -18,6 +19,10 @@ capMod.config(function ($routeProvider, $locationProvider) {
     when('/login', {
       templateUrl: 'partials/login.jade',
       controller: 'loginCtrl'
+    }).
+    when('/userHome', {
+      templateUrl: 'partials/userHome.jade',
+      controller: 'mainCtrl'
     }).
     otherwise({
     	redirectTo: '/'

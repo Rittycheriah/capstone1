@@ -71,6 +71,7 @@ if (env === 'production') {
 app.get('/', routes.index);
 
 app.use('/users', require('./routes/users'));
+app.use('/feedback', require('./routes/feedback'));
 app.get('/partials/:name', routes.partials);
 
 // redirect all others to the index (HTML5 history)
