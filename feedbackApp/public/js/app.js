@@ -6,7 +6,8 @@ var capMod = angular.module('myApp', [
               'ngRoute',
               'myApp.loginController',
               'myApp.registerController',
-              'myApp.feedbackController'
+              'myApp.feedbackController',
+              'myApp.propertyController'
             ])
 
 capMod.config(function ($routeProvider, $locationProvider) {
@@ -27,6 +28,10 @@ capMod.config(function ($routeProvider, $locationProvider) {
     when('/allFeedback', {
       templateUrl: 'partials/allFeedback.jade',
       controller: 'allFeedback'
+    }).
+      when('/allProperties', {
+      templateUrl: 'partials/allProp.jade',
+      controller: 'propertyCtrl'
     }).
     otherwise({
     	redirectTo: '/'
