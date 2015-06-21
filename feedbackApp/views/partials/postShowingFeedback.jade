@@ -1,0 +1,23 @@
+h1 {{title}}
+
+.row
+  .col-md-4
+  .col-md-4
+    form(method='POST')
+      .formfield
+        .formprompt
+        label Prospect Name
+        br
+        input#name(type='text', name='name', ng-model='showingPros.name')
+      .formfield
+        .formprompt
+        label Phone Number
+        br
+        input#name(type='text', name='phone', ng-model='showingPros.phone')
+      .formfield
+        .formprompt
+        label Comments About Property
+        br
+        input#name(type='text', name='comments', ng-model='showingPros.comments')
+      input.submitButton(type='submit', ng-click='addPostShowingFeedback()')
+  .col-md-4

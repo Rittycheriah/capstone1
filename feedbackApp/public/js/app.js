@@ -7,7 +7,9 @@ var capMod = angular.module('myApp', [
               'myApp.loginController',
               'myApp.registerController',
               'myApp.feedbackController',
-              'myApp.propertyController'
+              'myApp.propertyController',
+              'myApp.postShowingController',
+              'myApp.propertyService', 
             ])
 
 capMod.config(function ($routeProvider, $locationProvider) {
@@ -22,16 +24,24 @@ capMod.config(function ($routeProvider, $locationProvider) {
       controller: 'loginCtrl'
     }).
     when('/userHome', {
-      templateUrl: 'partials/userHome.jade',
-      controller: 'mainCtrl'
-    }).
-    when('/allFeedback', {
       templateUrl: 'partials/allFeedback.jade',
-      controller: 'allFeedback'
+      controller: 'showAllActivePropFeedback'
     }).
-      when('/allProperties', {
-      templateUrl: 'partials/allProp.jade',
+      when('/addProperties', {
+      templateUrl: 'partials/addNewProp.jade',
       controller: 'propertyCtrl'
+    }).
+      when('/addFeedback', {
+      templateUrl: 'partials/addFeedback.jade',
+      controller: 'addFeedback'
+    }).
+      when('/changeProperty', {
+      templateUrl: 'partials/change2active.jade',
+      controller: 'propertyCtrl'
+    }).
+      when('/postShowingFeedback', {
+      templateUrl: 'partials/postShowingFeedback.jade',
+      controller: 'postShowingFeedback'
     }).
     otherwise({
     	redirectTo: '/'

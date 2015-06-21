@@ -1,6 +1,8 @@
 angular.module('myApp.feedbackController', [])
-	.controller('mainCtrl', function ($scope, $http, $location, $rootScope) {
+	.controller('addFeedback', ['$scope', '$http', '$location', '$rootScope', 'currentPropertyService', 
+      function ($scope, $http, $location, $rootScope, currentPropertyService) {
 	  $scope.title = 'TR@CKeR'
+     $scope.getCurrentProp = currentPropertyService.getProperty();
 
 	  $scope.addFeedback = function() {
 	  	$http({
@@ -8,20 +10,22 @@ angular.module('myApp.feedbackController', [])
 	  		url: '/feedback/add',
 	  		data: {
 	  		  name: $scope.feedback.name,
-	  		  property: $scope.feedback.property,
 	  		  phone: $scope.feedback.phone,
-	  		  status: $scope.feedback.status
+	  		  status: $scope.feedback.status,
+           property_id: $scope.feedback.property_id
 	  		}
 	  	})
-	  }
- })
- .controller('allFeedback', function ($scope, $http, $location, $rootScope) {
-   $scope.title = 'All TR@CKeR'
+   }
+ }])
+ .controller('allFeedback', ['$scope', '$http', '$location', 'currentPropertyService',
+
+   function ($scope, $http, $location, $rootScope, currentPropertyService) {
+   $scope.title = 'All TR@CKeR';
 
    var getFeedback = function () {
    	$http({
    		method: 'GET',
-   		url: '/feedback/all'
+   		url: '/property/allActive'
    	}).
    	success(function(data, status, headers, config) {
    		console.log('got it!');
@@ -31,6 +35,7 @@ angular.module('myApp.feedbackController', [])
    		console.log('cannot get list');
    	});
    };
-
    getFeedback();
- })
+
+
+ }])

@@ -31,5 +31,15 @@
         input#phone(type='text', name='phone', ng-model='property.zip')
         br
         br
+      .formfield
+        .formprompt
+        label Status: 
+        br
+        input(type='radio', name='occupied', value='false', ng-model='property.status')
+        label Occupied
+        br
+        input(type='radio', name='Available', value='True', ng-model='property.status')
+        label Available
+        br
         input.submitButton(type='submit', ng-click='addProperty()')
   .col-md-4

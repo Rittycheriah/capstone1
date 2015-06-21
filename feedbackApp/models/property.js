@@ -5,7 +5,8 @@ var propertySchema = mongoose.Schema({
   StreetName: {type: String, required: true, default: ''},
   City: {type: String, required: true, default: ''},
   State: {type: String, required: true, default: 'TN'},
-  Zip: {type: String, required: true, default: ''}
+  Zip: {type: String, required: true, default: ''},
+  Status: {type: Boolean, required: true, default: false}
 });
 
 var property = mongoose.model('property', propertySchema);

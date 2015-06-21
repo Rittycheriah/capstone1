@@ -20,7 +20,7 @@ app.post("/add", function (req, res) {
 });
 
 app.get("/all", function (req, res) {
-	// this is where the api GETS anyting for the weekly calls
+	// this is where the api GETS anything for the weekly calls
 	// functionality
 
   feedbackModel.find({}, function(err, feedBack) {
