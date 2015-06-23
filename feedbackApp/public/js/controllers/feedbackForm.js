@@ -1,8 +1,10 @@
 angular.module('myApp.feedbackController', [])
 	.controller('addFeedback', ['$scope', '$http', '$location', '$rootScope', 'currentPropertyService', 
-      function ($scope, $http, $location, $rootScope, currentPropertyService) {
+     function ($scope, $http, $location, $rootScope, currentPropertyService) {
+     // this MODULE is for any feedback received
+     // regarding a call and it's results 
 	  $scope.title = 'TR@CKeR'
-     $scope.getCurrentProp = currentPropertyService.getProperty();
+    $scope.getCurrentProp = currentPropertyService.getProperty();
 
 	  $scope.addFeedback = function() {
 	  	$http({
@@ -12,12 +14,14 @@ angular.module('myApp.feedbackController', [])
 	  		  name: $scope.feedback.name,
 	  		  phone: $scope.feedback.phone,
 	  		  status: $scope.feedback.status,
-           property_id: $scope.feedback.property_id
+          property_id: $scope.getCurrentProp
 	  		}
 	  	})
    }
  }])
  .controller('allFeedback', ['$scope', '$http', '$location', 'currentPropertyService',
+  // this showing all feedback on a property
+  // and all active properties for the app
 
    function ($scope, $http, $location, $rootScope, currentPropertyService) {
    $scope.title = 'All TR@CKeR';

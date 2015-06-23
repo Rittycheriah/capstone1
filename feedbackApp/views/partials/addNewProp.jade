@@ -1,45 +1,42 @@
-.row
-  .col-md-4
-  .col-md-4
-    h1 {{title}}
-    p Welcome to {{title}}
-    form(method='POST')
-      .formfield
-        .formprompt
-        label Number: 
-        br
-        input#name(type='text', name='name', ng-model='property.houseNumber')
-      .formfield
-        .formprompt
-        label Street Name:
-        br
-        input#property(type='text', name='property', ng-model='property.street')
-      .formfield
-        .formprompt
-        label City:
-        br
-        input#phone(type='text', name='phone', ng-model='property.city')
-      .formfield
-        .formprompt
-        label State:
-        br
-        input#phone(type='text', name='phone', ng-model='property.state')
-      .formfield
-        .formprompt
-        label Zip:
-        br
-        input#phone(type='text', name='phone', ng-model='property.zip')
-        br
-        br
-      .formfield
-        .formprompt
-        label Status: 
-        br
-        input(type='radio', name='occupied', value='false', ng-model='property.status')
-        label Occupied
-        br
-        input(type='radio', name='Available', value='True', ng-model='property.status')
-        label Available
-        br
-        input.submitButton(type='submit', ng-click='addProperty()')
-  .col-md-4
+.col-md-10
+  h1 {{title}}
+  p Welcome to {{title}}
+  form(method='POST')
+    .formfield
+      .formprompt
+      label Number: 
+      br
+      input#name(type='text', name='name', ng-model='property.houseNumber')
+    .formfield
+      .formprompt
+      label Street Name:
+      br
+      input#property(type='text', name='property', ng-model='property.street')
+    .formfield
+      .formprompt
+      label City:
+      br
+      input#phone(type='text', name='phone', ng-model='property.city')
+    .formfield
+      .formprompt
+      label State:
+      br
+      input#phone(type='text', name='phone', ng-model='property.state')
+    .formfield
+      .formprompt
+      label Zip:
+      br
+      input#phone(type='text', name='phone', ng-model='property.zip')
+      br
+      br
+    .formfield
+      .formprompt
+      label Status: 
+      br
+      input(type='radio', name='occupied', value='false', ng-model='property.status')
+      label Occupied
+      br
+      input(type='radio', name='Available', value='True', ng-model='property.status')
+      label Available
+      br
+      input.submitButton(type='submit', ng-click='addProperty()')

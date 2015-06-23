@@ -70,6 +70,9 @@ if (env === 'production') {
 // serve index and view partials
 app.get('/', routes.index);
 
+
+//API set up using routes for users, feedback, and 
+//property
 app.use('/users', require('./routes/users'));
 app.use('/feedback', require('./routes/feedback'));
 app.use('/property', require('./routes/properties'))

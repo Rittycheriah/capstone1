@@ -1,10 +1,12 @@
-
+// this route deals with all feedback model operations
 var express = require('express');
 var app = express.Router();
 var feedbackModel = require("../models/feedback");
 
+
 app.post("/add", function (req, res) {
-	// this is where the api posts to whenever there is a request to save a new call
+	// this is where the api posts to whenever there 
+	//is a request to save a new call
 
 	console.log(req.body);
 
@@ -20,7 +22,7 @@ app.post("/add", function (req, res) {
 });
 
 app.get("/all", function (req, res) {
-	// this is where the api GETS anything for the weekly calls
+	// this is where the api GETS all for the weekly calls
 	// functionality
 
   feedbackModel.find({}, function(err, feedBack) {

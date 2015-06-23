@@ -1,3 +1,4 @@
+//this is the model for the initial feedback received at a phone call
 var mongoose = require('mongoose');
 
 var feedbackSchema = mongoose.Schema({

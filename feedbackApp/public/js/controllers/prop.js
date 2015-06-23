@@ -33,7 +33,7 @@ angular.module('myApp.propertyController', [])
 	  	})
 	  }
  })
-  .controller('showAllActivePropFeedback', function ($scope, $http, $location, $rootScope) {
+  .controller('showAllActivePropFeedback', function ($scope, $http, $location, $rootScope, currentPropertyService) {
   	$scope.title = 'TR@CKeR NEW HOME';
 
   	var getActiveProps = function () {
@@ -52,23 +52,25 @@ angular.module('myApp.propertyController', [])
 
    getActiveProps();
 
-      $scope.feedbackAdd = function () {
-      console.log('Going to add feedback, here is the unit', $scope.units);
-      $http({
-        method: 'POST', 
-        url: '/property/oneProp', 
-        data: $scope.units
-      }).
-         success(function(data, status, headers, config) {
-         getCurrentProp.setProperty(data[0]);
-         $scope.units = data[0];
-         $location.path('addFeedback');
-         console.log('***** SET PROPERTY FOR FEEDBACK', $scope.units);
-      }).
-         error(function(data, status, headers, config) {
-         console.log(data);
-         console.log('YOU LOSE AT SET PROPERTY FOR FEEDBACK');
-      })
+    $scope.feedbackAdd = function (unitId) {
+      console.log('Going to add feedback, here is the unit', unitId);
+      currentPropertyService.setProperty(unitId);
+      $location.path('addFeedback');
+      
+      // $http({
+      //   method: 'POST', 
+      //   url: '/property/' + unitId
+      // }).
+      //    success(function(data, status, headers, config) {
+      //    console.log('Here is what data looks like', data);
+      //    // $scope.units = data[0];
+      //    $location.path('addFeedback');
+      //    console.log('***** SET PROPERTY FOR FEEDBACK', $scope.units);
+      // }).
+      //    error(function(data, status, headers, config) {
+      //    console.log(data);
+      //    console.log('YOU LOSE AT SET PROPERTY FOR FEEDBACK');
+      // })
    }
 
   })

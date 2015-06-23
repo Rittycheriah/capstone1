@@ -1,3 +1,4 @@
+// this is the model for any property added to the application
 var mongoose = require('mongoose');
 
 var propertySchema = mongoose.Schema({

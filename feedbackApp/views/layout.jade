@@ -6,7 +6,6 @@ html
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body(ng-app='myApp')
-    block content
     
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-route/angular-route.js')
@@ -20,3 +19,17 @@ html
     script(src='js/controllers/feedbackForm.js')
     script(src='js/controllers/postShowings.js')
     script(src='js/controllers/prop.js')
+
+    .row
+      .col-md-2
+        ul.nav.nav-list
+          li.nav-eader
+          li.active
+            a(href='/userHome') Home
+          li 
+            a(href='/addProperties') Add Property
+          li 
+            a(href='/postShowingFeedback') Add Post Showing 
+          li 
+            a(href='/changeProperty') Change Property to Available
+      block content

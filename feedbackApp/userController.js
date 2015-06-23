@@ -5,6 +5,7 @@ var User = function () {
   this.currentUser = null;
 };
 
+//Logic for user login 
 User.prototype.login = function (username, password) {
   var deferred = Q.defer();
 
@@ -39,10 +40,12 @@ User.prototype.login = function (username, password) {
   return deferred.promise;
 };
 
+//User Logout Function
 User.prototype.logout = function (username, password) {
   this.currentUser = null;
 };
 
+//Getting current user for viewing a page 
 User.prototype.getCurrentUser = function () {
   return this.currentUser;
 };

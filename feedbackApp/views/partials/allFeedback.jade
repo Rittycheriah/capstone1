@@ -1,18 +1,14 @@
-.row(ng-controller='showAllActivePropFeedback')
-    .col-md-4
-    .col-md-4
-      h1 {{title}}
-      p Welcome to {{title}}
+.col-md-10(ng-controller='showAllActivePropFeedback')
+  h1 {{title}}
+  p Welcome to {{title}}
 
-      .list(ng-repeat= 'unit in units')
-        .info.graph
-        .info.totalCalls
-        .info.totalShowings
-        .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
-      .list.actions
-        a(ng-click='feedbackAdd(unit._id)') Add Feedback     
-
-
-        a(href='######') Show Details
-        br
-    .col-md-4
+  .list(ng-repeat= 'unit in units')
+    .info.graph
+    .info.totalCalls
+    .info.totalShowings
+    .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
+    .list.actions
+      a(ng-click='feedbackAdd(unit._id)') Add Feedback     
+      a(href='######') Show Details
+    br
+    br
