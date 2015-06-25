@@ -35,4 +35,17 @@ app.get("/all", function (req, res) {
 
 });
 
+app.get("/details4OneProp/:id", function (req, res) {
+  console.log(req.params.id);
+  feedbackModel.find({'property_id': req.params.id}, function(err, feedBack) {
+  	if (err) {
+  		res.send('** did not make it to ONE PROP DETAILS #######');
+  	} else {
+  		console.log('Here is the feedback we found ******', feedBack)
+  		res.json(feedBack);
+  	}
+  });
+
+})
+
 module.exports = app;

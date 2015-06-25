@@ -37,40 +37,53 @@ angular.module('myApp.propertyController', [])
   	$scope.title = 'TR@CKeR NEW HOME';
 
   	var getActiveProps = function () {
-   	$http({
-   		method: 'GET',
-   		url: '/property/allActive'
-   	}).
-   	success(function(data, status, headers, config) {
-   		console.log('got it!');
-   		$scope.units = data;
-   	}).
-   	error(function(data, status, headers, config) {
-   		console.log('cannot get list of properties');
-   	});
+     	$http({
+     		method: 'GET',
+     		url: '/property/allActive'
+     	}).
+     	success(function(data, status, headers, config) {
+     		console.log('got it!');
+     		$scope.units = data;
+     	}).
+     	error(function(data, status, headers, config) {
+     		console.log('cannot get list of properties');
+     	});
+   };
+
+   var getDetailedFeedback = function (propId) {
+     $http({
+       method: 'GET', 
+       url: '/feedback/details4OneProp/' + propId
+     }).
+     success(function(data, status, headers, config) {
+      console.log('getting detailed feedback');
+      $scope.details = data;
+     }).
+     error(function(data, status, headers, config) {
+      console.log('cannot get list of detailed feedback');
+     })
    };
 
    getActiveProps();
+
+    $scope.showDets = false;
+
+    $scope.changeDetsStatus = function (propId) {
+      $scope.showDets = propId;
+      getDetailedFeedback(propId);
+      return
+    }
+
+    $scope.hideDetsAgain = function () {
+      $scope.showDets = false;
+      return
+    }
 
     $scope.feedbackAdd = function (unitId) {
       console.log('Going to add feedback, here is the unit', unitId);
       currentPropertyService.setProperty(unitId);
       $location.path('addFeedback');
-      
-      // $http({
-      //   method: 'POST', 
-      //   url: '/property/' + unitId
-      // }).
-      //    success(function(data, status, headers, config) {
-      //    console.log('Here is what data looks like', data);
-      //    // $scope.units = data[0];
-      //    $location.path('addFeedback');
-      //    console.log('***** SET PROPERTY FOR FEEDBACK', $scope.units);
-      // }).
-      //    error(function(data, status, headers, config) {
-      //    console.log(data);
-      //    console.log('YOU LOSE AT SET PROPERTY FOR FEEDBACK');
-      // })
-   }
+    }
+
 
   })

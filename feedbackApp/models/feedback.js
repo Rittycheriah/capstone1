@@ -5,6 +5,7 @@ var feedbackSchema = mongoose.Schema({
 	name: {type: String, required: true, default: ''},
   phone: {type: String, required: true, default: ''},
   status: {type: String, required: true, default: ''},
+  responseAfterShowing: {type: String, required: true, default: 'no feedback at this time'},
   property_id: {type: String, required: true, default: ''}
 });
 

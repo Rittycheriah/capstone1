@@ -4,11 +4,18 @@
 
   .list(ng-repeat= 'unit in units')
     .info.graph
-    .info.totalCalls
-    .info.totalShowings
     .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
+    .info.totalCalls Number of Calls : 
+    .info.totalShowings Number of Showings : 
     .list.actions
-      a(ng-click='feedbackAdd(unit._id)') Add Feedback     
-      a(href='######') Show Details
+      a(ng-click='feedbackAdd(unit._id)') Add Initial Call    
+      a(ng-click='changeDetsStatus(unit._id)' ng-hide='showDets == unit._id') Show Details
     br
     br
+    .details(ng-show='showDets == unit._id')
+      .dets(ng-repeat= 'detail in details')
+        .dets.name {{detail.name}}
+        .dets.phone {{detail.phone}}
+        .dets.status {{detail.status}}
+        .dets.followUp 
+      a(ng-click='hideDetsAgain()') Collapse
