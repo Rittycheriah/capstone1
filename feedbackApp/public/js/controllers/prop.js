@@ -33,8 +33,41 @@ angular.module('myApp.propertyController', [])
 	  			Zip: $scope.property.zip, 
 	  			Status: $scope.property.status 
 	  		}
-	  	})
+	  	}).
+      success(function(data, status, headers, config) {
+        console.log('posting new property');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('cannot POST to addProperty');
+      })
 	  }
+
+    // this declares a variable that toggles the display of 
+    //changing of each set of feedback
+    $scope.showChangeForm = false;
+
+    // show change form for status
+    $scope.showForm = function (propId) {
+      $scope.showChangeForm = propId;
+      return
+    }
+
+    // hide change form
+    $scope.collapseForm = function () {
+      $scope.showChangeForm = false;
+      return
+    }
+
+    // WHELP
+    $scope.changeProperty = function (propId) {
+      $http({
+        method: 'POST', 
+        url: '/property/changePropStatus', 
+        data: {
+
+        }
+      })
+    }
  })
   .controller('showAllActivePropFeedback', [
 
