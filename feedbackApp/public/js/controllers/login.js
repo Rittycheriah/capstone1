@@ -11,6 +11,14 @@ angular.module('myApp.loginController', [])
 	  			username: $scope.user.username,
 	  			password: $scope.user.password
 	  		}
+	  	}).
+	  	success(function (data, status, headers, config){
+	  		console.log('you logged in!')
+	  		$location.path('/userHome')
+	  		$rootScope.rootuser = data.username;
+	  	}).
+	  	error(function (data, status, headers, config) {
+	  		console.log('you lose login')
 	  	})
 	  }
  })

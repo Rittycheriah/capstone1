@@ -2,6 +2,7 @@ angular.module('myApp.propertyController', [])
 	.controller('propertyCtrl', function ($scope, $http, $location, $rootScope) {
 	  $scope.title = 'TR@CKeR Properties';
 
+    // this function gets all properties that are in the system
     var getProps = function () {
     $http({
       method: 'GET',
@@ -16,8 +17,10 @@ angular.module('myApp.propertyController', [])
     });
    };
 
+   // calling the function as soon as the controller is loaded
    getProps();
 
+    // this adds the property that is input in the form to the backend
 	  $scope.addProperty = function() {
 	  	$http({
 	  		method: 'POST', 
@@ -33,9 +36,18 @@ angular.module('myApp.propertyController', [])
 	  	})
 	  }
  })
-  .controller('showAllActivePropFeedback', function ($scope, $http, $location, $rootScope, currentPropertyService) {
+  .controller('showAllActivePropFeedback', [
+
+    '$scope',
+    '$http', 
+    '$location', 
+    '$rootScope', 
+    'currentPropertyService',
+
+    function ($scope, $http, $location, $rootScope, currentPropertyService) {
   	$scope.title = 'TR@CKeR NEW HOME';
 
+    // here is the function that acts to get all active properties
   	var getActiveProps = function () {
      	$http({
      		method: 'GET',
@@ -47,43 +59,61 @@ angular.module('myApp.propertyController', [])
      	}).
      	error(function(data, status, headers, config) {
      		console.log('cannot get list of properties');
-     	});
-   };
+      });
+    };
+    getActiveProps();
 
-   var getDetailedFeedback = function (propId) {
-     $http({
-       method: 'GET', 
-       url: '/feedback/details4OneProp/' + propId
-     }).
-     success(function(data, status, headers, config) {
-      console.log('getting detailed feedback');
-      $scope.details = data;
-     }).
-     error(function(data, status, headers, config) {
-      console.log('cannot get list of detailed feedback');
-     })
-   };
+   // this gets all detailed feedback when details is clicked
+    var getDetailedFeedback = function (propId) {
+      $http({
+        method: 'GET', 
+        url: '/feedback/details4OneProp/' + propId
+      }).
+      success(function(data, status, headers, config) {
+        console.log('getting detailed feedback');
+        $scope.details = data;
+      }).
+      error(function(data, status, headers, config) {
+        console.log('cannot get list of detailed feedback');
+      })
+    };
 
-   getActiveProps();
-
+    // this declares a variable that toggles the display of 
+    //details of each set of feedback
     $scope.showDets = false;
 
+    // this changes the dets display so it shows by changing the boolean value of 
+    // showDets variable
     $scope.changeDetsStatus = function (propId) {
       $scope.showDets = propId;
       getDetailedFeedback(propId);
       return
     }
 
+    // this changes the showDets variable to false again to hide details
     $scope.hideDetsAgain = function () {
       $scope.showDets = false;
       return
     }
-
+    
+    // this sends the property's id via service to the form to add feedback
     $scope.feedbackAdd = function (unitId) {
       console.log('Going to add feedback, here is the unit', unitId);
       currentPropertyService.setProperty(unitId);
       $location.path('addFeedback');
     }
 
-
-  })
+    // this function adds a new call with a property id ONLY
+    $scope.addNewCall = function (propId) {
+      $http({
+        method: 'POST',
+        url: '/property/add2callCount/'+ propId
+      }).
+      success(function(data, status, headers, config) {
+        console.log('posting new call');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('cannot POST to addCall');
+      })
+    } 
+}]);

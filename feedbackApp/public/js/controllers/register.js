@@ -11,6 +11,14 @@ angular.module('myApp.registerController', [])
 	  			username: $scope.user.username,
 	  			password: $scope.user.password
 	  		}
+	  	}).
+	  	success(function (data, status, headers, config){
+	  		console.log('you registered!')
+	  		$location.path('/login')
+	  		$rootScope.rootuser = data.username;
+	  	}).
+	  	error(function (data, status, headers, config) {
+	  		console.log('you lose register')
 	  	})
 	  }
  })
