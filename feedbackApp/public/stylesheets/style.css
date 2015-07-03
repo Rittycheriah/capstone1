@@ -1,9 +1,13 @@
+* {
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color: #CCFFFF;
+}
+
 div {
 	border: solid black 1px;
 }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -13,6 +17,20 @@ a {
 
 #loginHead {
 	text-align: center;
+}
+
+#loginLabel {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+#loginButton {
+	margin: 10px;
+}
+
+#homeimg {
+	margin: 0 auto;
 }
 
 .dets {

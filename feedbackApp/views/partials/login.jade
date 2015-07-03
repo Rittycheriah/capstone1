@@ -1,25 +1,29 @@
-div(ng-controller='loginCtrl')
-.col-md-1
-.col-md-7
-  .row 
-    h1#loginHead Welcome to realTr@cker
-  .row
-    .col-md-4
-    .col-md-4
-      h3 {{message}}
-    .col-md-4
-  .row
-    .col-md-4
-    .col-md-4
-      form(method='POST')
-        .formfield
-          .formprompt
-          input#username(type='text', name='username', ng-model='user.username')
-        .formfield
-          .formprompt
-          input#password(type='password', name='password', ng-model='user.password')
-          br
-          input.submitButton(type='submit', ng-click='login()')
-    .col-md-4
-  img.img-responsive(src='/images/homeimg.jpg', id='homeimg')
-.col-md-2
+.col-md-9
+  div(ng-controller='loginCtrl')
+  .col-md-1
+  .col-md-7
+    .row 
+      h1#loginHead Welcome to realTr@cker
+    .row
+      .col-md-4
+      .col-md-4
+      .col-md-4
+    .row
+      .col-md-4
+      .col-md-4
+        form(method='POST')
+          .formfield
+            .formprompt
+            label#loginLabel Name
+            br
+            input#username.loginFields(type='text', name='username', ng-model='user.username')
+          .formfield
+            .formprompt
+            label#loginLabel Password
+            br
+            input#password.loginFields(type='password', name='password', ng-model='user.password')
+            br
+            input.submitButton(type='submit', ng-click='login()', id='loginButton')
+      .col-md-4
+    img.img-responsive(src='/images/homeimg.png', id='homeimg')
+  .col-md-2

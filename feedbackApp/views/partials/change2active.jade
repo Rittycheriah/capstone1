@@ -1,21 +1,22 @@
-.col-md-10
-  h1 {{title}}
-  p Welcome to {{title}}
+.col-md-9
+  .col-md-10
+    h1 {{title}}
+    p Welcome to {{title}}
 
-  .list(ng-repeat= 'unit in units')
-    .info.property
-    ul 
-      li Address: {{unit.HouseNum}} {{unit.StreetName}}
-      {{unit.City}} , {{unit.State}} {{unit.Zip}}
-      li(ng-show='unit.Status === true') Current Status: Available
-      li(ng-show='unit.Status === false') Current Status: Occupied
-      br
-      li 
-        a(ng-click='showForm(unit._id)') Change Status
-      li(ng-show='showChangeForm === unit._id') 
+    .list(ng-repeat= 'unit in units')
+      .info.property
+      ul 
+        li Address: {{unit.HouseNum}} {{unit.StreetName}}
+        {{unit.City}} , {{unit.State}} {{unit.Zip}}
+        li(ng-show='unit.Status === true') Current Status: Available
+        li(ng-show='unit.Status === false') Current Status: Occupied
         br
-        button(type='button', class='btn btn-info', ng-click='change2Occupied(unit._id)') Change To Occupied
-        button(type='button', class='btn btn-info', ng-click='change2Vacant(unit._id)') Change to Available
-        button(type='button', class='btn btn-info', ng-click='collapseForm()') Hide
-    br
-    br
+        li 
+          a(ng-click='showForm(unit._id)') Change Status
+        li(ng-show='showChangeForm === unit._id') 
+          br
+          button(type='button', class='btn btn-info', ng-click='change2Occupied(unit._id)') Change To Occupied
+          button(type='button', class='btn btn-info', ng-click='change2Vacant(unit._id)') Change to Available
+          button(type='button', class='btn btn-info', ng-click='collapseForm()') Hide
+      br
+      br
