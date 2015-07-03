@@ -1,8 +1,16 @@
-.row(ng-controller='loginCtrl')
+div(ng-controller='loginCtrl')
+.col-md-1
+.col-md-7
+  .row 
+    h1#loginHead Welcome to realTr@cker
+  .row
     .col-md-4
     .col-md-4
-      h1 {{message}}
-      p Welcome to {{message}}
+      h3 {{message}}
+    .col-md-4
+  .row
+    .col-md-4
+    .col-md-4
       form(method='POST')
         .formfield
           .formprompt
@@ -12,5 +20,6 @@
           input#password(type='password', name='password', ng-model='user.password')
           br
           input.submitButton(type='submit', ng-click='login()')
-      img.img-responsive(src='/images/homeimg.jpg', id='homeimg')
     .col-md-4
+  img.img-responsive(src='/images/homeimg.jpg', id='homeimg')
+.col-md-2

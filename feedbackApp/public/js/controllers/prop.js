@@ -37,6 +37,7 @@ angular.module('myApp.propertyController', [])
 	  	}).
       success(function(data, status, headers, config) {
         console.log('posting new property');
+        $location.path('userHome')
       }).
       error(function(data, status, headers, config) {
         console.log('cannot POST to addProperty');
