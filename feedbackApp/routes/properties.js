@@ -108,6 +108,19 @@ app.put('/changePropStatusVacant/:id', function (req, res) {
   })
 }); 
 
+app.delete('/deleteProp/:id', function (req, res) {
+  console.log(req.body)
+
+  propModel.findById(req.params.id)
+    .remove(function (err) {
+      if (err) {
+        console.log('DELETE DID NOT WORK', err)
+      } else {
+        res.send("Property Deleted");
+      }
+    })
+}) 
+
 
 
 module.exports = app;
