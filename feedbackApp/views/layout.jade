@@ -39,17 +39,17 @@ html
         ul.nav.nav-list(ng-show='!rootuser')
           li.nav-header
           li.active
-            a(href='/register') Register
+            a.navButtons(href='/register') Register
           li.active
-            a(href='/login') Login
+            a.navButtons(href='/login') Login
         ul.nav.nav-list(ng-show='rootuser')
           li.nav-header
           li.active
-            a(href='/userHome') Home
+            a.navButtons(href='/userHome') Home
           li 
-            a(href='/addProperties') Add Property
+            a.navButtons(href='/addProperties') Add Property
           li 
-            a(href='/changeProperty') Change Property to Available
+            a.navButtons(href='/changeProperty') Change Property to Available
           li 
-            a(ng-click='logout()') Logout
+            a.navButtons(ng-click='logout()') Logout
       block content

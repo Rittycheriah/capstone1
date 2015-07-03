@@ -1,6 +1,6 @@
 angular.module('myApp.propertyController', [])
 	.controller('propertyCtrl', function ($scope, $http, $location, $rootScope) {
-	  $scope.title = 'TR@CKeR Properties';
+	  $scope.title = 'realTr@cker';
 
     // this function gets all properties that are in the system
     var getProps = function () {
@@ -97,7 +97,7 @@ angular.module('myApp.propertyController', [])
     'currentPropertyService',
 
     function ($scope, $http, $location, $rootScope, currentPropertyService) {
-  	$scope.title = 'TR@CKeR NEW HOME';
+  	$scope.title = 'realTr@cker Home';
 
     // here is the function that acts to get all active properties
   	var getActiveProps = function () {

@@ -1,20 +1,24 @@
 .col-md-9
   .col-md-10(ng-controller='showAllActivePropFeedback')
     h1 {{title}}
-    p Welcome to {{title}}
-    .list(ng-repeat= 'unit in units')
+    h3 Welcome {{rootuser}}
+    .list.homeText(ng-repeat= 'unit in units')
       .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
       .info.totalCalls Total Number of Calls : {{unit.callCount}}
       .list.actions
-        a(ng-click='addNewCall(unit._id)') Add Call Only  
-        a(ng-click='feedbackAdd(unit._id)') Add Showing
-        a(ng-click='postShow(unit._id)') Add Post Showing Feedback  
-        a(ng-click='changeDetsStatus(unit._id)' ng-hide='showDets == unit._id') Showing Data
+        button.btn.btn-default.actionBtns 
+          a.actionLink1(ng-click='addNewCall(unit._id)') Add Call Only  
+        button.btn.btn-info.actionBtns
+          a.actionLink2(ng-click='feedbackAdd(unit._id)') Add Showing
+        button.btn.btn-default.actionBtns
+          a.actionLink1(ng-click='postShow(unit._id)') Add Post Showing Feedback
+        button.btn.btn-info.actionBtns  
+          a.actionLink2(ng-click='changeDetsStatus(unit._id)' ng-hide='showDets == unit._id') Showing Data
       br
       br
       .details(ng-show='showDets == unit._id')
         .info.totalShowings Total Number of Showings : {{details.length}}
-        table
+        table#customTable.table.table-bordered.table-hover
           tr
             td Contact Name
             td Phone Number

@@ -1,23 +1,32 @@
 * {
 	font-family: 'Roboto Condensed', sans-serif;
-	background-color: #CCFFFF;
 }
 
-div {
+/*div {
 	border: solid black 1px;
-}
+}*/
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #E6E8FA;
 }
 
 a {
   color: #00B7FF;
 }
 
+.nav {
+	background-color: #82CFFD;
+}
+
+.navButtons {
+	color: black;
+}
+
 #loginHead {
 	text-align: center;
 }
+
 
 #loginLabel {
 	margin-top: 5px;
@@ -33,6 +42,36 @@ a {
 	margin: 0 auto;
 }
 
+.homeText {
+	font-size: 18px;
+}
+
+#customTable tbody tr:nth-child(odd) {
+  background-color: #B0C4DE;
+  color: #191970;
+}
+
+#customTable tbody tr:nth-child(even) {
+  background-color: #C6E2FF;
+  color: #436EEE;
+}
+
 .dets {
 	display: inline-block;
+}
+
+#allPropList {
+	list-style: none;
+}
+
+button {
+  margin: 10px;
+}
+
+.actionLink1 {
+	color: #1E90FF;
+}
+
+.actionLink2 {
+	color: white;
 }

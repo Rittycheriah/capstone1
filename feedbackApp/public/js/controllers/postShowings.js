@@ -9,7 +9,7 @@ angular.module('myApp.postShowingController', [])
       function ($scope, $http, $location, $rootScope, currentPropertyService) {
 	      $scope.getCurrentProp = currentPropertyService.getProperty();
 
-	      $scope.title = 'TR@CKeR POST SHOWING';
+	      $scope.title = 'realTr@cker';
 	      $scope.addPostShowFeedback = function() {
 			  	$http({
 			  		method: 'POST', 
