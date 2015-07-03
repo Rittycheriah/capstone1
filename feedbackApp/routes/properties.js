@@ -32,7 +32,7 @@ app.get("/allActive", function (req, res) {
     	res.send('** could not find it');
     } else {
  			res.json(property);
- 			console.log('*****MADE IT THROUGH FIND ACTIVE');
+ 			console.log('*****MADE IT THROUGH FIND ACTIVE', property);
     }
   
   });
@@ -54,8 +54,7 @@ app.get("/allProperties", function (req, res) {
 });
 
 
-// still working out this portion of the code for possible edits 
-// to hold all feedback for a specific property
+// This posts feedback for one property
 app.post("/:id", function (req, res) {
 
   console.log(req.body, 'THIS IS ONE PROPERTY BY ID *******')
@@ -69,5 +68,46 @@ app.post("/:id", function (req, res) {
   });
 
 });
+
+app.put('/add2callCount/:id', function (req, res) {
+  console.log(req.params.id);
+
+  propModel.findByIdAndUpdate(req.params.id, { $inc: {'callCount': 1} },function (err, prop) {
+    if (err) {
+      res.send('** did not make it to ADD CALL ######');
+    } else {
+      console.log('Here is the property we are adding to', prop)
+      console.log('Here is the call COUNT ****** ');
+    }
+  })
+}); 
+
+app.put('/changePropStatusOccupied/:id', function (req, res) {
+  console.log(req.params.id);
+
+  propModel.findByIdAndUpdate(req.params.id, { $set: {'Status': false} },function (err, prop) {
+    if (err) {
+      res.send('** did not make it to ADD OCCUPIED ######');
+    } else {
+      console.log('Here is the property we are changing to OCCUPIED', prop)
+      res.send('SUCCESS OCCUPIED')
+    }
+  })
+}); 
+
+app.put('/changePropStatusVacant/:id', function (req, res) {
+  console.log(req.params.id);
+
+  propModel.findByIdAndUpdate(req.params.id, { $set: {'Status': true} },function (err, prop) {
+    if (err) {
+      res.send('** did not make it to ADD VACANT ######');
+    } else {
+      console.log('Here is the property we are changing to VACANT', prop)
+      res.send('SUCCESS VACANT');
+    }
+  })
+}); 
+
+
 
 module.exports = app;

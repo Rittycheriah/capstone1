@@ -11,25 +11,42 @@ html
     script(src='bower_components/angular-route/angular-route.js')
     script(src='bower_components/jquery/dist/jquery.min.js')
     script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='http://cdn.amcharts.com/lib/3/amcharts.js')
+    script(src='http://www.amcharts.com/lib/3/serial.js')
+    script(src='http://cdn.amcharts.com/lib/3/themes/dark.js')
+    script(src='images/amCharts.js')
+
+
+
     script(src='js/app.js')
     script(src='js/services.js')
     script(src='js/services/getPropertyService.js')
     script(src='js/controllers/login.js')
+    script(src='js/controllers/logout.js')
     script(src='js/controllers/register.js')
     script(src='js/controllers/feedbackForm.js')
+    script(src='js/controllers/graphsCtrl.js')
     script(src='js/controllers/postShowings.js')
     script(src='js/controllers/prop.js')
-
-    .row
+    script(src='js/filters/followupStatus.js')
+    script(src='js/directives/initChart.js')    
+    
+    .row(ng-controller='logoutCtrl')
       .col-md-2
-        ul.nav.nav-list
-          li.nav-eader
+        ul.nav.nav-list(ng-show='!rootuser')
+          li.nav-header
+          li.active
+            a(href='/register') Register
+          li.active
+            a(href='/login') Login
+        ul.nav.nav-list(ng-show='rootuser')
+          li.nav-header
           li.active
             a(href='/userHome') Home
           li 
             a(href='/addProperties') Add Property
           li 
-            a(href='/postShowingFeedback') Add Post Showing 
-          li 
             a(href='/changeProperty') Change Property to Available
+          li 
+            a(ng-click='logout()') Logout
       block content

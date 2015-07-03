@@ -17,7 +17,8 @@ angular.module('myApp.feedbackController', [])
           property_id: $scope.getCurrentProp
 	  		}
 	  	})
-   }
+      $location.path('userHome')
+    }
  }])
  .controller('allFeedback', ['$scope', '$http', '$location', 'currentPropertyService',
   // this showing all feedback on a property

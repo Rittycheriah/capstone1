@@ -5,11 +5,14 @@
 var capMod = angular.module('myApp', [
               'ngRoute',
               'myApp.loginController',
+              'myApp.logoutController',
               'myApp.registerController',
               'myApp.feedbackController',
               'myApp.propertyController',
               'myApp.postShowingController',
-              'myApp.propertyService', 
+              'myApp.propertyService',
+              'myApp.followUpStatusFilter',
+              'myApp.graphsController' 
             ])
 
 capMod.config(function ($routeProvider, $locationProvider) {
@@ -43,8 +46,12 @@ capMod.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/postShowingFeedback.jade',
       controller: 'postShowingFeedback'
     }).
+      when('/viewGraph', {
+      templateUrl: 'partials/propGraph', 
+      controller: 'viewGraphs'
+    }).
     otherwise({
-    	redirectTo: '/'
+    	redirectTo: '/login'
     });
 
 });

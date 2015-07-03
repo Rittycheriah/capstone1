@@ -2,8 +2,11 @@ app.directive('greet', [function() {
 	var o = {};
 
 	o.restrict = 'E';
-	o.templateUrl = '/partials/greeting.html';
-	o.scope = {name: '@', age: '@'};
+	o.replace: true, 
+  o.scope: {
+  	config: '='
+  },
+	o.templateUrl = '/partials/greeting.html'
 
 	return o;
 }])

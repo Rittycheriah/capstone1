@@ -10,6 +10,7 @@ angular.module('myApp.propertyController', [])
     }).
     success(function(data, status, headers, config) {
       console.log('got it!');
+      console.log(data);
       $scope.units = data;
     }).
     error(function(data, status, headers, config) {
@@ -58,15 +59,32 @@ angular.module('myApp.propertyController', [])
       return
     }
 
-    // WHELP
-    $scope.changeProperty = function (propId) {
+    $scope.change2Occupied = function (propId) {
       $http({
-        method: 'POST', 
-        url: '/property/changePropStatus', 
-        data: {
-
-        }
+        method: 'PUT',
+        url: '/property/changePropStatusOccupied/' + propId
+      }).
+      success(function(data, status, headers, config) {
+        console.log('putting OCCUPIED');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('cannot OCCUPIED switch');
       })
+      $location.path('/userHome')
+    }
+
+    $scope.change2Vacant = function (propId) {
+      $http({
+        method: 'PUT',
+        url: '/property/changePropStatusVacant/'+ propId
+      }).
+      success(function(data, status, headers, config) {
+        console.log('posting VACANT');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('cannot VACANT switch');
+      })
+      $location.path('/userHome')
     }
  })
   .controller('showAllActivePropFeedback', [
@@ -88,6 +106,7 @@ angular.module('myApp.propertyController', [])
      	}).
      	success(function(data, status, headers, config) {
      		console.log('got it!');
+        console.log(data);
      		$scope.units = data;
      	}).
      	error(function(data, status, headers, config) {
@@ -136,10 +155,10 @@ angular.module('myApp.propertyController', [])
       $location.path('addFeedback');
     }
 
-    // this function adds a new call with a property id ONLY
+    // this function adds a new call with a property id ONLY 
     $scope.addNewCall = function (propId) {
       $http({
-        method: 'POST',
+        method: 'PUT',
         url: '/property/add2callCount/'+ propId
       }).
       success(function(data, status, headers, config) {
@@ -148,5 +167,20 @@ angular.module('myApp.propertyController', [])
       error(function(data, status, headers, config) {
         console.log('cannot POST to addCall');
       })
+      
+      getActiveProps();
     } 
+
+    //Post Showing Post to Feedback
+    $scope.postShow = function (propId) {
+      console.log('going to add post showing feedback');
+      currentPropertyService.setProperty(propId);
+      $location.path('postShowingFeedback')
+    } 
+
+    // $scope.viewGraph = function (propId) {
+    //   console.log('going to viewing Graph');
+    //   currentPropertyService.setProperty(propId);
+    //   $location.path('viewGraph');
+    // } 
 }]);

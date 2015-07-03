@@ -6,7 +6,7 @@ var feedbackModel = require("../models/feedback");
 
 app.post("/add", function (req, res) {
 	// this is where the api posts to whenever there 
-	//is a request to save a new call
+	//is a request to save a new feedback post initial call
 
 	console.log(req.body);
 
@@ -20,6 +20,21 @@ app.post("/add", function (req, res) {
 	  }
 	});
 });
+
+app.post('/addPostShow', function (req, res) {
+  console.log(req.body);
+
+  var feedBack2 = new feedbackModel(req.body);
+
+  feedBack2.save(function (err, user) {
+    if (feedBack2 === null) {
+      res.status(403).send('Not added');
+    } else {
+      res.status(200).send("**** FEEDBACK MADE IT")
+    }
+  });
+
+})
 
 app.get("/all", function (req, res) {
 	// this is where the api GETS all for the weekly calls
@@ -37,7 +52,7 @@ app.get("/all", function (req, res) {
 
 app.get("/details4OneProp/:id", function (req, res) {
   console.log(req.params.id);
-  feedbackModel.find({'property_id': req.params.id}, function(err, feedBack) {
+  feedbackModel.find({'property_id': req.params.id}, function (err, feedBack) {
   	if (err) {
   		res.send('** did not make it to ONE PROP DETAILS #######');
   	} else {
@@ -47,5 +62,6 @@ app.get("/details4OneProp/:id", function (req, res) {
   });
 
 })
+
 
 module.exports = app;

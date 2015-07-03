@@ -1,21 +1,29 @@
 .col-md-10(ng-controller='showAllActivePropFeedback')
   h1 {{title}}
   p Welcome to {{title}}
-
   .list(ng-repeat= 'unit in units')
-    .info.graph
     .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
-    .info.totalCalls Number of Calls : 
-    .info.totalShowings Number of Showings : 
+    .info.totalCalls Total Number of Calls : {{unit.callCount}}
     .list.actions
-      a(ng-click='feedbackAdd(unit._id)') Add Initial Call    
-      a(ng-click='changeDetsStatus(unit._id)' ng-hide='showDets == unit._id') Show Details
+      a(ng-click='addNewCall(unit._id)') Add Call Only  
+      a(ng-click='feedbackAdd(unit._id)') Add Showing
+      a(ng-click='postShow(unit._id)') Add Post Showing Feedback  
+      a(ng-click='changeDetsStatus(unit._id)' ng-hide='showDets == unit._id') Showing Data
     br
     br
     .details(ng-show='showDets == unit._id')
-      .dets(ng-repeat= 'detail in details')
-        .dets.name {{detail.name}}
-        .dets.phone {{detail.phone}}
-        .dets.status {{detail.status}}
-        .dets.followUp 
+      .info.totalShowings Total Number of Showings : {{details.length}}
+      table
+        tr
+          td Contact Name
+          td Phone Number
+          td Status
+          td Follow Up Needed
+          td Client Response
+        tr(ng-repeat= 'detail in details', style='border: 1px solid black; border-collapse: separate; border-spacing: 2px; padding: 20px;')
+          td {{detail.name}}
+          td {{detail.phone}}
+          td {{detail.status}}
+          td {{detail.responseAfterShowing | needsFollowup: detail.responseAfterShowing }}
+          td {{detail.responseAfterShowing}}
       a(ng-click='hideDetsAgain()') Collapse
