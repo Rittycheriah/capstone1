@@ -1,38 +1,37 @@
 .col-md-9
   .col-md-10
     h1 {{title}}
-    p Welcome to {{title}}
     form(method='POST')
       .formfield
         .formprompt
-        label Prospect Name
+        label.addFeedLabels Prospect Name
         br
         input#name(type='text', name='name', ng-model='feedback.name')
       .formfield
         .formprompt
-        label Phone
+        label.addFeedLabels Phone
         br
         input#phone(type='text', name='phone', ng-model='feedback.phone')
       .formfield
         .formprompt
         br
         input#status(type='radio', name='string', ng-model='feedback.status', value='Gave Code')
-        label Gave Code
+        label.addFeedLabels Gave Code
       .formfield
         .formprompt
         br
         input#status(type='radio', name='string', ng-model='feedback.status', value='Scheduled Showing')
-        label Scheduled Showing
+        label.addFeedLabels Scheduled Showing
       .formfield
         .formprompt
         br
         input#status(type='radio', name='string', ng-model='feedback.status', value='Call Back If App Falls Through')
-        label Call Back if App Falls Through
+        label.addFeedLabels Call Back if App Falls Through
       .formfield
         .formprompt
         br
         input#status(type='radio', name='string', ng-model='feedback.status', value='Call Back to Show')
-        label Call Back to Show
+        label.addFeedLabels Call Back to Show
         br
-        input.submitButton(type='submit', ng-click='addFeedback()')
+        input.submitButton.addFeedBtn.btn.btn-default(type='submit', ng-click='addFeedback()')
 

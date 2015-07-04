@@ -28,6 +28,18 @@ a {
 	text-align: center;
 }
 
+#registerHeadline {
+	text-align: center;
+}
+
+.regInputs {
+	margin-top: 10px;
+}
+
+.registerImgs {
+	padding-top: 25px;
+	padding-right: 50px;
+}
 
 #loginLabel {
 	margin-top: 5px;
@@ -70,6 +82,10 @@ button {
   margin: 10px;
 }
 
+.submitRegButton {
+	margin-top: 10px;
+}
+
 .actionLink1 {
 	color: #1E90FF;
 }
@@ -89,4 +105,20 @@ button {
 .label4PropIn {
 	padding: 5px;
 	font-size: 15px;
+}
+
+.submitPostShowButton {
+	margin-top: 10px;
+}
+
+.postShowLabels {
+	font-size: 18px;
+}
+
+.addFeedLabels {
+	font-size: 18px;
+}
+
+.addFeedBtn {
+	margin-top: 15px;
 }

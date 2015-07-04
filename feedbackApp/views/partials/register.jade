@@ -1,15 +1,24 @@
 .col-md-9
-  .col-md-4
-  .col-md-4
-    h1 {{message2}}
-    p {{message}}
-    form(method='POST')
-      .formfield
-        .formprompt
-        input#username(type='text', name='username', ng-model='user.username')
-      .formfield
-        .formprompt
-        input#password(type='password', name='password', ng-model='user.password')
-        br
-        input.submitButton(type='submit', ng-click='register()')
-  .col-md-4
+  .row
+    h1#registerHeadline {{message2}}
+  .row 
+    .col-md-4
+    .col-md-4
+      h3 {{message}}
+      form(method='POST')
+        .formfield
+          .formprompt
+          input#username.regInputs(type='text', name='username', ng-model='user.username')
+        .formfield
+          .formprompt
+          input#password.regInputs(type='password', name='password', ng-model='user.password')
+          br
+          input.btn.btn-info.submitRegButton(type='submit', ng-click='register()')
+    .col-md-4
+  .row 
+    .col-md-6.registerImgs
+      img.img-responsive(src='/images/crm.jpeg')
+    .col-md-6.registerImgs
+      img.img-responsive(src='/images/sky.jpg')
+
+erImgsg')

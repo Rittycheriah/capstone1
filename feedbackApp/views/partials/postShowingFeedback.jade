@@ -4,18 +4,18 @@
     form(method='POST')
       .formfield
         .formprompt
-        label Prospect Name
+        label.postShowLabels Prospect Name
         br
         input#name(type='text', name='name', ng-model='showingPros.name')
       .formfield
         .formprompt
-        label Phone Number
+        label.postShowLabels Phone Number
         br
         input#name(type='text', name='phone', ng-model='showingPros.phone')
       .formfield
         .formprompt
-        label Comments About Property
+        label.postShowLabels Comments About Property
         br
         input#name(type='text', name='comments', ng-model='showingPros.comments')
-      input.submitButton(type='submit', ng-click='addPostShowFeedback()')
+      input.submitPostShowButton.btn.btn-default(type='submit', ng-click='addPostShowFeedback()')
 
