@@ -1,43 +1,43 @@
 .col-md-9
   .col-md-10
     h1 {{title}}
-    p Welcome to {{title}}
+    h4 Add Property To System: 
     form(method='POST')
       .formfield
         .formprompt
-        label Number: 
+        label.label4PropIn Number: 
         br
-        input#name(type='text', name='name', ng-model='property.houseNumber')
+        input.addPropInput#name(type='text', name='name', ng-model='property.houseNumber')
       .formfield
         .formprompt
-        label Street Name:
+        label.label4PropIn Street Name:
         br
-        input#property(type='text', name='property', ng-model='property.street')
+        input.addPropInput#property(type='text', name='property', ng-model='property.street')
       .formfield
         .formprompt
-        label City:
+        label.label4PropIn City:
         br
-        input#phone(type='text', name='phone', ng-model='property.city')
+        input.addPropInput#phone(type='text', name='phone', ng-model='property.city')
       .formfield
         .formprompt
-        label State:
+        label.label4PropIn State:
         br
-        input#phone(type='text', name='phone', ng-model='property.state')
+        input.addPropInput#phone(type='text', name='phone', ng-model='property.state')
       .formfield
         .formprompt
-        label Zip:
+        label.label4PropIn Zip:
         br
-        input#phone(type='text', name='phone', ng-model='property.zip')
+        input.addPropInput#phone(type='text', name='phone', ng-model='property.zip')
         br
         br
       .formfield
         .formprompt
-        label Status: 
+        label.label4PropIn Status: 
         br
         input(type='radio', name='occupied', value='false', ng-model='property.status')
-        label Occupied
+        label.label4PropIn Occupied
         br
         input(type='radio', name='Available', value='True', ng-model='property.status')
-        label Available
+        label.label4PropIn Available
         br
         input.submitButton(type='submit', ng-click='addProperty()')

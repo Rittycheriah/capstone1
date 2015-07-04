@@ -1,6 +1,7 @@
 angular.module('myApp.registerController', [])
 	.controller('registerCtrl', function ($scope, $http, $location, $rootScope) {
 		$scope.message = 'Register Below!'
+		$scope.message2 = 'realTr@acker Registry'
 	  $scope.user = {};
 
 	  $scope.register = function() {

@@ -3,7 +3,8 @@
     h1 {{title}}
     h3 Welcome {{rootuser}}
     .list.homeText(ng-repeat= 'unit in units')
-      .info.property Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
+      .info.property 
+        h4 Property: {{unit.HouseNum}}  {{unit.StreetName}} {{unit.City}}, {{unit.State}}  {{unit.Zip}}
       .info.totalCalls Total Number of Calls : {{unit.callCount}}
       .list.actions
         button.btn.btn-default.actionBtns 
@@ -17,7 +18,8 @@
       br
       br
       .details(ng-show='showDets == unit._id')
-        .info.totalShowings Total Number of Showings : {{details.length}}
+        .info.totalShowings 
+          h3 Total Number of Showings : {{details.length}}
         table#customTable.table.table-bordered.table-hover
           tr
             td Contact Name
@@ -31,4 +33,5 @@
             td {{detail.status}}
             td {{detail.responseAfterShowing | needsFollowup: detail.responseAfterShowing }}
             td {{detail.responseAfterShowing}}
-        a(ng-click='hideDetsAgain()') Collapse
+        button.btn.btn-default
+          a(ng-click='hideDetsAgain()') Collapse

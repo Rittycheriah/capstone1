@@ -62,6 +62,7 @@ a {
 
 #allPropList {
 	list-style: none;
+	font-size: 18px;
 }
 
 button {
@@ -74,4 +75,17 @@ button {
 
 .actionLink2 {
 	color: white;
+}
+
+.details {
+	margin: 20px;
+}
+
+.addPropInput {
+	width: 200px;
+}
+
+.label4PropIn {
+	padding: 5px;
+	font-size: 15px;
 }
