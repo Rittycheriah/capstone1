@@ -89,17 +89,19 @@ angular.module('myApp.propertyController', [])
     }
 
     $scope.deleteProp = function (propId) {
-        console.log('delete the stuff');
-        $http({
-          method: 'DELETE', 
-          url: '/property/deleteProp/' + propId
-        }).
-        success(function(data, status, headers, config){
-          console.log('you have deleted it');
-        }).
-        error(function(data, status, headers, config){
-          console.log('you LOSE at DELETE')
-        })
+      console.log('delete the stuff');
+      $http({
+        method: 'DELETE', 
+        url: '/property/deleteProp/' + propId
+      }).
+      success(function(data, status, headers, config){
+        console.log('you have deleted it');
+      }).
+      error(function(data, status, headers, config){
+        console.log('you LOSE at DELETE')
+      })
+
+      getProps();
     } 
  })
   .controller('showAllActivePropFeedback', [
