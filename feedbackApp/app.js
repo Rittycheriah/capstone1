@@ -77,6 +77,7 @@ app.use('/users', require('./routes/users'));
 app.use('/feedback', require('./routes/feedback'));
 app.use('/property', require('./routes/properties'))
 app.get('/partials/:name', routes.partials);
+app.use('/static', express.static('public'));
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

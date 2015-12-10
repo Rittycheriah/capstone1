@@ -9,29 +9,6 @@ html
     link(href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css')
   body(ng-app='myApp')
     
-    script(src='bower_components/angular/angular.js')
-    script(src='bower_components/angular-route/angular-route.js')
-    script(src='bower_components/jquery/dist/jquery.min.js')
-    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
-    script(src='http://cdn.amcharts.com/lib/3/amcharts.js')
-    script(src='http://www.amcharts.com/lib/3/serial.js')
-    script(src='http://cdn.amcharts.com/lib/3/themes/dark.js')
-    script(src='images/amCharts.js')
-
-
-
-    script(src='js/app.js')
-    script(src='js/services.js')
-    script(src='js/services/getPropertyService.js')
-    script(src='js/controllers/login.js')
-    script(src='js/controllers/logout.js')
-    script(src='js/controllers/register.js')
-    script(src='js/controllers/feedbackForm.js')
-    script(src='js/controllers/graphsCtrl.js')
-    script(src='js/controllers/postShowings.js')
-    script(src='js/controllers/prop.js')
-    script(src='js/filters/followupStatus.js')
-    script(src='js/directives/initChart.js')    
     
     .row(ng-controller='logoutCtrl')
       .col-md-1
@@ -53,3 +30,29 @@ html
           li 
             a.navButtons(ng-click='logout()') Logout
       block content
+
+
+
+    script(src='/static/bower_components/angular/angular.js')
+    script(src='/static/bower_components/angular-route/angular-route.js')
+    script(src='/static/bower_components/jquery/dist/jquery.min.js')
+    script(src='/static/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='http://cdn.amcharts.com/lib/3/amcharts.js')
+    script(src='http://www.amcharts.com/lib/3/serial.js')
+    script(src='http://cdn.amcharts.com/lib/3/themes/dark.js')
+    script(src='/static/images/amCharts.js')
+
+
+
+    script(src='/static/js/app.js')
+    script(src='/static/js/services.js')
+    script(src='/static/js/services/getPropertyService.js')
+    script(src='/static/js/controllers/login.js')
+    script(src='/static/js/controllers/logout.js')
+    script(src='/static/js/controllers/register.js')
+    script(src='/static/js/controllers/feedbackForm.js')
+    script(src='/static/js/controllers/graphsCtrl.js')
+    script(src='/static/js/controllers/postShowings.js')
+    script(src='/static/js/controllers/prop.js')
+    script(src='/static/js/filters/followupStatus.js')
+    script(src='/static/js/directives/initChart.js')    
